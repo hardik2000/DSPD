@@ -1,0 +1,15 @@
+19:06:08 **** Incremental Build of configuration Debug for project Tree ****
+make all 
+Building file: ../src/Tree.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Tree.d" -MT"src/Tree.o" -o "src/Tree.o" "../src/Tree.c"
+Finished building: ../src/Tree.c
+ 
+Building target: Tree
+Invoking: GCC C Linker
+gcc  -o "Tree"  ./src/Tree.o   
+Finished building target: Tree
+ 
+
+19:06:08 Build Finished. 0 errors, 0 warnings. (took 212ms)
+

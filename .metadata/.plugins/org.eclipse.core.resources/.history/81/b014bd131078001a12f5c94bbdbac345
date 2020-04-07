@@ -1,0 +1,87 @@
+/*
+ ============================================================================
+ Name        : DSPD_ASS_TREE.c
+ Author      : Hardik
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct Node
+{
+	struct Node *parent;
+	int level;
+	char IBO_id[9];
+	int mentoring_score;
+	int sale_score;
+	int count_child;
+	struct Node *child[3];
+
+}IBO;
+IBO *CreateNode(int level,char IBO_id[])
+{
+	IBO temp=(IBO *)malloc(sizeof(IBO));
+	temp->parent=NULL;
+	temp->level=level;
+	strcpy(temp->IBO_id,IBO_id);
+	temp->mentoring_score=0;
+	temp->sale_score=0;
+	temp->count_child=0;
+	for(int i=0;i<3;i++)
+	{
+		temp->child[i]=NULL;
+	}
+
+	return temp;
+}
+IBO *Insert_IBO(IBO *parent_node)
+{
+	if(parent_node==NULL)
+	{
+		char IBO_id[9];
+		strcpy(IBO_id,"1");
+		parent_node=CreateNode(0,IBO_id);
+	}
+	else
+	{
+		if(parent_node->count_child<3)
+		{
+			char IBO_id[9];
+			int i;
+			for(i=0;parent_node->IBO_id[i]!='\0';i++)
+			{
+				IBO_id[i]=parent_node->IBO_id[i];
+			}
+			IBO_id[i]=(char)(parent_node->count_child+1);
+			IBO_id[i+1]='\0';
+			parent_node->child[parent_node->count_child]=CreateNode(parent_node->level+1,IBO_id);
+			parent_node->count_child++;
+		}
+		else
+		{
+			printf("!!!!!!!PARENT NODE FULL INSERT SOMEWHERE ELSE!!!!!!!\n");
+		}
+	}
+	return parent_node;
+}
+
+int main(void)
+{
+
+
+
+
+
+
+
+
+
+
+
+
+	return 0;
+}

@@ -1,0 +1,6 @@
+19:46:47 **** Incremental Build of configuration Debug for project String_count_level ****
+make all 
+make: Nothing to be done for 'all'.
+
+19:46:47 Build Finished. 0 errors, 0 warnings. (took 162ms)
+

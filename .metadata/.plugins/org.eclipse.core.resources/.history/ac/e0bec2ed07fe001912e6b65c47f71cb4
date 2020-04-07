@@ -1,0 +1,15 @@
+/*
+ * merge.h
+ *
+ *  Created on: 03-Nov-2019
+ *      Author: hardik
+ */
+
+#ifndef MERGE_H_
+#define MERGE_H_
+
+	void merge_sort(float temp_veg_den[],int temp_index[],int c[],int l,int h);
+	void merge_self(float temp_veg_den[],int temp_index[],int l,int m,int n,int c[]);
+
+
+#endif /* MERGE_H_ */

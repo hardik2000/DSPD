@@ -1,0 +1,35 @@
+/*
+ ============================================================================
+ Name        : CPLASSIGN.c
+ Author      : Hardik & SUYASH
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef struct AllocateNodeTag
+{
+	char name[10];
+	int index;
+	int size;
+	struct AllocateNodeTag * next;
+}AllocNode;
+
+typedef struct FreeNodeTag
+{
+	int index;
+	int size;
+	struct FreeNodeTag *next;
+}FreeNode;
+
+
+
+
+int main(void) {
+
+	return 0;
+}

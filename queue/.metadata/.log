@@ -1,0 +1,118 @@
+!SESSION 2020-02-24 18:30:03.787 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.core 1 0 2020-02-24 18:30:39.114
+!MESSAGE Using Apache MINA sshd as ssh client.
+!SESSION 2020-02-25 21:32:01.629 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.core 1 0 2020-02-25 21:32:10.832
+!MESSAGE Using Apache MINA sshd as ssh client.
+!SESSION 2020-02-25 21:32:26.222 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.egit.core 1 0 2020-02-25 21:32:28.821
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:33:48.228
+!MESSAGE Indexed 'queen' (2 sources, 1 headers) in 0.473 sec: 29 declarations; 101 references; 3 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:33:50.154
+!MESSAGE Indexed 'DSPD' (1 sources, 70 headers) in 0.479 sec: 2,335 declarations; 6,186 references; 0 unresolved inclusions; 0 syntax errors; 8 unresolved names (0.094%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:33:51.519
+!MESSAGE Indexed 'CPLASSIGN' (1 sources, 57 headers) in 0.586 sec: 1,240 declarations; 3,184 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-02-25 21:33:54.603
+!MESSAGE The workspace will exit with unsaved changes in this session.
+
+!ENTRY org.eclipse.ui.ide 4 0 2020-02-25 21:33:54.624
+!MESSAGE assertion failed: The application has not been initialized.
+!STACK 0
+org.eclipse.core.runtime.AssertionFailedException: assertion failed: The application has not been initialized.
+	at org.eclipse.core.runtime.Assert.isTrue(Assert.java:113)
+	at org.eclipse.core.internal.runtime.InternalPlatform.assertInitialized(InternalPlatform.java:136)
+	at org.eclipse.core.internal.runtime.InternalPlatform.getInstanceLocation(InternalPlatform.java:314)
+	at org.eclipse.core.runtime.Plugin.savePluginPreferences(Plugin.java:390)
+	at org.eclipse.core.internal.resources.Workspace.setDescription(Workspace.java:2374)
+	at org.eclipse.ui.internal.wizards.datatransfer.SmartImportJob.run(SmartImportJob.java:285)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+!SESSION 2020-02-25 21:33:55.449 -----------------------------------------------
+eclipse.buildId=4.11.0.I20190307-0500
+java.version=11.0.6
+java.vendor=Ubuntu
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=en_IN
+Framework arguments:  -product org.eclipse.epp.package.java.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.java.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2020-02-25 21:33:58.869
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.egit.core 1 0 2020-02-25 21:34:00.826
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:06.283
+!MESSAGE Indexed 'Determinent' (1 sources, 52 headers) in 0.75 sec: 985 declarations; 1,834 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:06.472
+!MESSAGE Indexed 'LinkedListSem3' (1 sources, 0 headers) in 0.059 sec: 65 declarations; 237 references; 2 unresolved inclusions; 0 syntax errors; 22 unresolved names (6.8%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:06.696
+!MESSAGE Indexed 'Priority_queue' (1 sources, 0 headers) in 0.069 sec: 60 declarations; 195 references; 2 unresolved inclusions; 0 syntax errors; 9 unresolved names (3.4%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:06.955
+!MESSAGE Indexed 'Saddle Point' (1 sources, 23 headers) in 0.132 sec: 458 declarations; 877 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:07.485
+!MESSAGE Indexed 'Sorting_Bubble' (1 sources, 53 headers) in 0.283 sec: 998 declarations; 1,936 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:07.654
+!MESSAGE Indexed 'Sparse_Matrix' (1 sources, 0 headers) in 0.058 sec: 54 declarations; 209 references; 2 unresolved inclusions; 0 syntax errors; 14 unresolved names (5.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:08.070
+!MESSAGE Indexed 'code' (1 sources, 52 headers) in 0.333 sec: 1,008 declarations; 2,035 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:08.446
+!MESSAGE Indexed 'cpl' (1 sources, 57 headers) in 0.306 sec: 1,197 declarations; 2,491 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:08.776
+!MESSAGE Indexed 'cplassignment2' (1 sources, 57 headers) in 0.248 sec: 1,200 declarations; 2,384 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:08.893
+!MESSAGE Indexed 'int_links' (1 sources, 0 headers) in 0.038 sec: 51 declarations; 244 references; 2 unresolved inclusions; 0 syntax errors; 19 unresolved names (6.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:09.184
+!MESSAGE Indexed 'linkedlist' (1 sources, 52 headers) in 0.231 sec: 972 declarations; 1,818 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:09.420
+!MESSAGE Indexed 'long_mono_seq' (1 sources, 52 headers) in 0.173 sec: 973 declarations; 1,871 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:09.573
+!MESSAGE Indexed 'node_insertion' (1 sources, 0 headers) in 0.041 sec: 55 declarations; 208 references; 2 unresolved inclusions; 0 syntax errors; 15 unresolved names (5.4%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:09.880
+!MESSAGE Indexed 'queue_link' (1 sources, 51 headers) in 0.219 sec: 1,006 declarations; 1,952 references; 1 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:10.278
+!MESSAGE Indexed 'stack' (1 sources, 52 headers) in 0.335 sec: 989 declarations; 1,850 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:10.522
+!MESSAGE Indexed 'sum_min' (1 sources, 0 headers) in 0.012 sec: 14 declarations; 80 references; 2 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2020-02-25 21:34:29.360
+!MESSAGE Indexed 'reverse_recursive' (1 sources, 52 headers) in 0.203 sec: 987 declarations; 1,859 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)

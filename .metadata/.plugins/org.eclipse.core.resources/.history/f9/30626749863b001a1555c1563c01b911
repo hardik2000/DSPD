@@ -1,0 +1,40 @@
+/*
+ ============================================================================
+ Name        : LinkedListSem3.c
+ Author      : Hardik
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define Itemtype int
+struct Node
+{
+	Itemtype data;
+	struct Node *next;
+
+};
+
+int main(void)
+{
+
+	struct Node *N1,*N2,*N3,*ptr;
+	N1=(struct Node *)malloc(sizeof(struct Node));
+	N2=(struct Node *)malloc(sizeof(struct Node));
+	N3=(struct Node *)malloc(sizeof(struct Node));
+	N1->data=10;
+	N2->data=20;
+	N3->data=30;
+	N1->next=NULL;
+	ptr=N1;
+	printf("%d ",ptr->data);
+	N2->next=ptr;
+	printf("%d ",ptr->data);
+	N3->next=ptr;
+	printf("%d ",ptr->data);
+
+	return 0;
+}

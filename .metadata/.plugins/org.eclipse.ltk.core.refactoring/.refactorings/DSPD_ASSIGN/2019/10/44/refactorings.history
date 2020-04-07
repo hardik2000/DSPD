@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;DSPD_ASSIGN/src/DSPD_ASSIGN.c&apos; to &apos;main.c&apos;" description="Rename resource &apos;DSPD_ASSIGN.c&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/DSPD_ASSIGN.c" name="main.c" stamp="1572433761739" updateReferences="true"/>
+</session>

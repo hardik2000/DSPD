@@ -1,0 +1,90 @@
+/*
+ ============================================================================
+ Name        : CPLASSIGN.c
+ Author      : Hardik & SUYASH
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 144
+#define N 11
+int FIB[N];
+
+typedef struct AllocateNodeTag
+{
+	char name[10];
+	int index;
+	int size;
+	struct AllocateNodeTag * next;
+}AllocNode;
+
+typedef struct FreeNodeTag
+{
+	int index;
+	int size;
+	struct FreeNodeTag *next;
+}FreeNode;
+
+struct FREEPTRS
+{
+	int fib;
+	FreeNode * lptr;
+
+}FREEPTRS[N];
+
+void  fibgen()
+{
+	int a,b,c;
+	a=0=c;
+	b=1;
+	int i=0;
+	while(c<SIZE)
+	{
+		c=a+b;
+		FIB[i]=c;
+		i++;
+		a=b;
+		b=c;
+	}
+}
+void Initialise(struct FREEPTRS[],FreeNode *ptr)
+{
+	int i;
+	for(i=0;i<N;i++)
+	{
+		FREEPTRS[i].fib=FIB[i];
+		FREEPTRS[i].lptr=NULL;
+	}
+	FREEPTRS[i-1]->lptr=ptr;
+}
+
+void MALLOC()
+{
+
+
+
+
+}
+
+int main(void)
+{
+	FreeNode *ptr;
+	fibgen();
+	ptr=(FreeNode *)malloc(sizeof(FreeNode));
+	ptr->index=0;
+	ptr->next=NULL;
+	ptr->size=SIZE;
+
+	Initialise(FREEPTRS,ptr);
+
+
+
+
+
+	return 0;
+
+}

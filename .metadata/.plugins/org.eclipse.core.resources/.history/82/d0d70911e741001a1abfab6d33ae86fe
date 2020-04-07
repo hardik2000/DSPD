@@ -1,0 +1,130 @@
+/*
+ ============================================================================
+ Name        : stack.c
+ Author      : Hardik
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+typedef int item_type;
+
+typedef enum{FAILURE,SUCCESS} status_code;
+
+typedef struct Node
+{
+	item_type data;
+	struct Node * next;
+
+}node;
+void Initialise(node * top)
+{
+	top->next=NULL;
+}
+
+status_code push(node ** top,int x)
+{
+	status_code retval=SUCCESS;
+	node * temp=(node *)malloc(sizeof(node));
+	node * ptr;
+	ptr=*top;
+	if(!temp)
+	{
+		retval=FAILURE;
+		printf("STACK OVERFLOW\n");
+	}
+	else
+	{
+		temp->data=x;
+		temp->next=ptr;
+		ptr=temp;
+	}
+	*top=ptr;
+	return retval;
+}
+status_code IsEmpty(node *top)
+{
+	status_code sc=FAILURE;
+	if(top==NULL)
+	{
+		sc=SUCCESS;
+
+	}
+
+	return sc;
+}
+item_type peek(node *top)
+{
+	if(IsEmpty(top))
+	{
+		printf("STACK EMPTY!!!");
+		return -1;
+	}
+	else
+	{
+		return top->data;
+	}
+}
+
+status_code pop(int *x,node *top)
+{
+	status_code retval=SUCCESS;
+	if(IsEmpty(top))
+	{
+		retval=FAILURE;
+	}
+	else
+	{
+		s->top--;
+
+		*x=s->items[s->top];
+
+	}
+
+	return retval;
+}
+int main(void)
+{
+	item_type x;
+	int n,i;
+	stack s1;
+	Initialise(&s1);
+	status_code sc;
+	for(i=0;i<5;i++)
+	{
+		printf("Enter the no be inserted");
+		scanf("%d",&x);
+		sc=push(&s1,x);
+		if(sc==SUCCESS)
+		{
+			printf("\nElement pushed\n");
+		}
+		else
+		{
+			printf("\nElement not pushed\n");
+		}
+
+	}
+	for(i=0;i<5;i++)
+	{
+		sc=pop(&x,&s1);
+		if(sc==SUCCESS)
+		{
+			printf("\nElement popped %d\n",x);
+		}
+		else
+		{
+			printf("\nElement not pushed\n");
+		}
+
+	}
+
+
+
+
+	return 0;
+}

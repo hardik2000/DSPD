@@ -1,0 +1,15 @@
+19:03:50 **** Build of configuration Debug for project queue_link ****
+make all 
+Building file: ../src/queue_link.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/queue_link.d" -MT"src/queue_link.o" -o "src/queue_link.o" "../src/queue_link.c"
+Finished building: ../src/queue_link.c
+ 
+Building target: queue_link
+Invoking: GCC C Linker
+gcc  -o "queue_link"  ./src/queue_link.o   
+Finished building target: queue_link
+ 
+
+19:03:50 Build Finished. 0 errors, 0 warnings. (took 215ms)
+

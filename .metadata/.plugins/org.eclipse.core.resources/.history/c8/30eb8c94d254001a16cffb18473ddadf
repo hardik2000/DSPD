@@ -1,0 +1,169 @@
+/*
+ ============================================================================
+ Name        : CPLASSIGN.c
+ Author      : Hardik & SUYASH
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#define SIZE 144
+#define N 11
+int FIB[N];
+
+typedef struct AllocateNodeTag
+{
+	char name[10];
+	int index;
+	int size;
+	struct AllocateNodeTag * next;
+}AllocNode;
+
+typedef struct FreeNodeTag
+{
+	int index;
+	int size;
+	struct FreeNodeTag *next;
+}FreeNode;
+
+struct FREEPTRS
+{
+	int fib;
+	FreeNode * lptr;
+
+}FREEPTRS[N];
+
+void  fibgen()
+{
+	int a,b,c;
+	a=0;
+	c=0;
+	b=1;
+	int i=0;
+	while(c<SIZE)
+	{
+		c=a+b;
+		FIB[i]=c;
+		i++;
+		a=b;
+		b=c;
+	}
+}
+void Initialise(struct FREEPTRS FREEPTRS[],FreeNode *ptr)
+{
+	int i;
+	for(i=0;i<N;i++)
+	{
+		FREEPTRS[i].fib=FIB[i];
+		FREEPTRS[i].lptr=NULL;
+	}
+	FREEPTRS[i-1].lptr=ptr;
+}
+int binarySearch(struct FREEPTRS arr[],int l, int r,int x)
+{
+    if (r > l)
+    {
+        int mid = l + (r - l) / 2;
+
+        // If the element is present at the middle
+        // itself
+        if (arr[mid].fib == x)
+            return mid;
+
+        // If element is smaller than mid, then
+        // it can only be present in left subarray
+        if (arr[mid].fib > x)
+            return binarySearch(arr, l, mid - 1, x);
+
+        // Else the element can only be present
+        // in right subarray
+        return binarySearch(arr, mid + 1, r, x);
+    }
+    else if(l==r)
+    {
+    	return l;
+    }
+    else
+    {
+    	return l;
+    }
+    // We reach here when element is not
+    // present in array
+}
+
+void MALLOC(AllocNode *headAlloc,int size,char name[])
+{
+	int pos=binarySearch(FREEPTRS,0,N-1,size);
+	if(FREEPTRS[pos].fib<size)
+	{
+		pos++;
+	}
+	//if(pos ==-1)
+	printf("%d",pos);
+
+
+}
+
+int main(void)
+{
+	FreeNode *ptr;
+	fibgen();
+	ptr=(FreeNode *)malloc(sizeof(FreeNode));
+	ptr->index=0;
+	ptr->next=NULL;
+	ptr->size=SIZE;
+
+	Initialise(FREEPTRS,ptr);
+
+	AllocNode *headAlloc;
+	headAlloc=NULL;
+	char pname[10];
+	int choice,size,flag=1;
+		do
+		{
+			printf("*************************** CHOOSE ANY OPTION TO CONTINUE ***************************\n");
+			printf("1.MALLOC\n");
+			printf("2.FREE\n");
+			printf("3.PRINT ALLOCATED LIST\n");
+			printf("4.PRINT FREE LIST\n");
+			printf("5.QUIT\n");
+			printf("***************************\n");
+			scanf("%d",&choice);
+			switch(choice)
+			{
+				case 1:
+						printf("Name of pointer\n");
+						scanf("%s",pname);
+						printf("Enter the required size\n");
+						scanf("%d",&size);
+						MALLOC(&headAlloc,size,pname);
+						break;
+				case 2:
+						printf("Enter name of pointer\n");
+						scanf("%s",pname);
+						//FREE(&headAlloc,pname);
+						break;
+				case 3:
+						//PRINTALLOC(headAlloc);
+						break;
+				case 4:
+						// PRINTFREE(headFree);
+						break;
+				case 5:
+						flag=0;
+						break;
+				default:
+						printf("!!!!!!  INVALID ENTRY ENTER AGAIN:  !!!!!!\n");
+						flag=1;
+			}
+		}while(flag==1);
+
+
+
+
+	return 0;
+
+}

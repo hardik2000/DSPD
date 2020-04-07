@@ -1,0 +1,587 @@
+/*
+ ============================================================================
+ Name        : DSPD_LINKEDLIST.c
+ Author      : Hardik
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+#include<string.h>
+
+#define compact_spot 60
+#define large_spot 40
+
+int N_RECORD=74;
+
+typedef struct Node_parking_Spot
+{
+	char Parking_level;
+	char Dedicated_wing;
+	int type;
+	int location;
+
+}parking_spot;
+
+struct Node_Parking
+{
+	char Parking_level;
+	char Dedicated_wing;
+	int no_of_compact_spot;
+	int no_of_large_spot;
+	int *status_compact_spot;
+	int *status_large_spot;
+
+	struct Node_Parking * next;
+
+};
+
+
+struct Node_Vehicle
+{
+	int type;							//can have only two values(2 for two wheelers and 4 for 4 wheelers)
+	char no[15];
+	parking_spot spot;
+	struct Node_Vehicle *next;
+};
+
+
+struct Node_Flat
+{
+	char wing_id[2];
+	int flat_id;
+	int no_of_two_wheelers;
+	int no_of_four_wheelers;
+	struct Node_Vehicle * vehicle;
+	struct Node_Flat *next;
+};
+
+void Read_Details_Console()
+{
+	struct Node_Flat flat;
+	char flag[3];
+	FILE *fptr = fopen("data_flat.txt", "w");
+	if (fptr == NULL)
+	{
+		printf("Could not open file");
+	}
+	else
+	{
+		do
+		{
+			printf("PLEASE ENTER THE FOLLOWING DETAILS OF THE FLATS :\n");
+			fflush(stdin);
+
+			printf("WING-ID (A/B/C) :");
+			scanf("%s",flat.wing_id);
+			fprintf(fptr,"%s\n",flat.wing_id);
+
+			printf("\nFLAT-ID :");
+			scanf("%d",&flat.flat_id);
+			fprintf(fptr,"%d\n",flat.flat_id);
+
+			printf("\nNO OF TWO WHEELERS :");
+			scanf("%d",&flat.no_of_two_wheelers);
+			fprintf(fptr,"%d\n",flat.no_of_two_wheelers);
+
+			printf("\nNO OF FOUR WHEELERS :");
+			scanf("%d",&flat.no_of_four_wheelers);
+			fprintf(fptr,"%d\n",flat.no_of_four_wheelers);
+			flat.vehicle=(struct Node_Vehicle *)malloc(sizeof(struct Node_Vehicle));
+
+			for(int i=0;i<(flat.no_of_two_wheelers);i++)
+			{
+				printf("\nPLEASE ENTER YOUR TWO WHEELER VEHICLE DETAILS %d :\n",i+1);
+				printf("TYPE : %d",2);
+				flat.vehicle->type=2;
+				fprintf(fptr,"%d\n",flat.vehicle->type);
+				printf("\nNUMBER :");
+				scanf("%s",flat.vehicle->no);
+				fprintf(fptr,"%s\n",flat.vehicle->no);
+				flat.vehicle->next=NULL;
+			}
+			for(int i=0;i<(flat.no_of_four_wheelers);i++)
+			{
+				printf("\nPLEASE ENTER YOUR FOUR WHEELER VEHICLE DETAILS %d :\n",i+1);
+				printf("TYPE : %d",4);
+				flat.vehicle->type=4;
+				fprintf(fptr,"%d\n",flat.vehicle->type);
+				printf("\nNUMBER :");
+				scanf("%s",flat.vehicle->no);
+				fprintf(fptr,"%s\n",flat.vehicle->no);
+				flat.vehicle->next=NULL;
+			}
+			N_RECORD++;
+			printf("DO YOU WANT TO ENTER MORE RECORDS (Y/N) : \n");
+			scanf("%s",flag);
+			fflush(stdin);
+		}while(!strcmp(flag,"Y") || !strcmp(flag,"y"));
+
+		printf("THANKS FOR ENTERING DATA YOUR WORK IS IMPORTANT \n");
+	}
+	fclose(fptr);
+
+
+}
+struct Node_Flat * Read_Details_File()
+{
+	struct Node_Flat *Flat_Head,*Flat_Last,*flat;
+	Flat_Head=NULL;
+	Flat_Last=NULL;
+	struct Node_Vehicle *temp_vehicle;
+
+
+	FILE *fptr = fopen("data_flat.txt", "r");
+	if (fptr == NULL)
+	{
+		printf("NO SUCH FILE EXIST :");
+	}
+	else
+	{
+		for(int j=0;j<N_RECORD;j++)
+		{
+			flat=(struct Node_Flat *)malloc(sizeof(struct Node_Flat));
+			fscanf(fptr,"%s",flat->wing_id);
+
+			fscanf(fptr,"%d",&flat->flat_id);
+
+			fscanf(fptr,"%d",&flat->no_of_two_wheelers);
+
+			fscanf(fptr,"%d",&flat->no_of_four_wheelers);
+
+			flat->next=NULL;
+			flat->vehicle=NULL;
+
+			for(int i=0;i<(flat->no_of_two_wheelers);i++)
+			{
+				temp_vehicle=(struct Node_Vehicle *)malloc(sizeof(struct Node_Vehicle));
+				fscanf(fptr,"%d",&temp_vehicle->type);
+				fscanf(fptr,"%s",temp_vehicle->no);
+				temp_vehicle->next=flat->vehicle;
+				flat->vehicle=temp_vehicle;
+			}
+
+			for(int i=0;i<(flat->no_of_four_wheelers);i++)
+			{
+				temp_vehicle=(struct Node_Vehicle *)malloc(sizeof(struct Node_Vehicle));
+				fscanf(fptr,"%d",&temp_vehicle->type);
+
+				fscanf(fptr,"%s",temp_vehicle->no);
+
+				temp_vehicle->next=flat->vehicle;
+				flat->vehicle=temp_vehicle;
+			}
+
+			if(j==0)
+			{
+				Flat_Head=flat;
+				Flat_Last=flat;
+				flat->next=NULL;
+			}
+			else
+			{
+				Flat_Last->next=flat;
+				Flat_Last=flat;
+			}
+		}
+
+	}
+	fclose(fptr);
+
+	return Flat_Head;
+
+}
+struct Node_Parking * Initialise(struct Node_Parking *parking_head)
+{
+	struct Node_Parking *temp;
+	temp=(struct Node_Parking *)malloc(sizeof(struct Node_Parking));
+	temp->Parking_level='A';
+	temp->Dedicated_wing='A';
+	temp->no_of_compact_spot=compact_spot;
+	temp->no_of_large_spot=large_spot;
+	temp->status_compact_spot=(int *)malloc(sizeof(int)*compact_spot);
+	for(int i=0;i<compact_spot;i++)
+	{
+		temp->status_compact_spot[i]=0;
+	}
+	temp->status_large_spot=(int *)malloc(sizeof(int)*large_spot);
+	for(int i=0;i<large_spot;i++)
+	{
+		temp->status_large_spot[i]=0;
+	}
+	temp->next=parking_head;
+	parking_head=temp;
+
+
+	temp=(struct Node_Parking *)malloc(sizeof(struct Node_Parking));
+	temp->Parking_level='B';
+	temp->Dedicated_wing='B';
+	temp->no_of_compact_spot=compact_spot;
+	temp->no_of_large_spot=large_spot;
+	temp->status_compact_spot=(int *)malloc(sizeof(int)*compact_spot);
+	for(int i=0;i<compact_spot;i++)
+	{
+		temp->status_compact_spot[i]=0;
+	}
+	temp->status_large_spot=(int *)malloc(sizeof(int)*large_spot);
+	for(int i=0;i<large_spot;i++)
+	{
+		temp->status_large_spot[i]=0;
+	}
+	temp->next=parking_head;
+	parking_head=temp;
+	//free(temp);
+
+
+	temp=(struct Node_Parking *)malloc(sizeof(struct Node_Parking));
+	temp->Parking_level='C';
+	temp->Dedicated_wing='C';
+	temp->no_of_compact_spot=compact_spot;
+	temp->no_of_large_spot=large_spot;
+	temp->status_compact_spot=(int *)malloc(sizeof(int)*compact_spot);
+	for(int i=0;i<compact_spot;i++)
+	{
+		temp->status_compact_spot[i]=0;
+	}
+	temp->status_large_spot=(int *)malloc(sizeof(int)*large_spot);
+	for(int i=0;i<large_spot;i++)
+	{
+		temp->status_large_spot[i]=0;
+	}
+	temp->next=parking_head;
+	parking_head=temp;
+
+	parking_head->next->next->next=parking_head;
+
+	return parking_head;
+}
+
+void Park_Vehicle(struct Node_Parking *Parking_Lot,struct Node_Flat *Flat_Details)
+{
+	char no[15];
+	char owner[10];
+	parking_spot spot;
+
+
+	printf("PLEASE ENTER THE NUMBER OF VEHICLE TO PARK : \n");
+	scanf("%s",no);
+
+	struct Node_Flat *temp_flat;
+	struct Node_Vehicle *temp_vehicle;
+	struct Node_Parking *temp_parking;
+	temp_flat=Flat_Details;
+	int found=0;
+	while(temp_flat!=NULL && found==0)
+	{
+		temp_vehicle=temp_flat->vehicle;
+		while(temp_vehicle!=NULL && found==0)
+		{
+			if(!strcmp(temp_vehicle->no,no))
+			{
+					found=1;
+			}
+			if(found==0)
+			{
+				temp_vehicle=temp_vehicle->next;
+			}
+		}
+		if(found==0)
+		{
+			temp_flat=temp_flat->next;
+		}
+
+	}
+	//if(found)
+	//temp_vehicle contains found vehicle
+	//temp_flat contains found flat
+	//else
+	//temp_vehicle=NULL;
+	//temp_flat==NULL;
+	if(found==1)
+	{
+		strcpy(owner,"insider");
+		//if(check whether found spot is empty or not if not empty then found another spot
+
+		//temp_vehicle->spot.Parking_level,temp_vehicle->spot.type,temp_vehicle->spot.location;
+		int type=temp_vehicle->type;
+		temp_parking=Parking_Lot;
+
+		temp_vehicle->spot.Parking_level='A';
+		//printf("%c %c %c\n",temp_parking->Parking_level,temp_parking->next->Parking_level,temp_parking->next->next->Parking_level);
+		int found;
+		found=0;
+		if(temp_parking->Parking_level==temp_vehicle->spot.Parking_level)
+		{
+				printf("C\n");
+
+			if(type==2)
+			{
+				if(temp_vehicle->spot.type==2)
+				{
+					if(temp_parking->status_compact_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_compact_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=2;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+				else
+				{
+					if(temp_parking->status_large_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_large_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=4;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+			}
+			else
+			{
+				if(temp_vehicle->spot.type==2)
+				{
+					if(temp_parking->status_compact_spot[temp_vehicle->spot.location-1]==0 && temp_parking->status_compact_spot[temp_vehicle->spot.location]==0)
+					{
+						temp_parking->status_compact_spot[temp_vehicle->spot.location-1]=1;
+						temp_parking->status_compact_spot[temp_vehicle->spot.location]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=2;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+				else
+				{
+					if(temp_parking->status_large_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_large_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=4;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+			}
+
+
+		}
+		else if(temp_parking->next->Parking_level==temp_vehicle->spot.Parking_level)
+		{
+			printf("B\n");
+
+			if(type==2)
+			{
+				if(temp_vehicle->spot.type==2)
+				{
+					if(temp_parking->status_compact_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_compact_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=2;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+				else
+				{
+					if(temp_parking->status_large_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_large_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=4;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+			}
+			else
+			{
+				if(temp_vehicle->spot.type==2)
+				{
+					if(temp_parking->status_compact_spot[temp_vehicle->spot.location-1]==0 && temp_parking->status_compact_spot[temp_vehicle->spot.location]==0)
+					{
+						temp_parking->status_compact_spot[temp_vehicle->spot.location-1]=1;
+						temp_parking->status_compact_spot[temp_vehicle->spot.location]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=2;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+				else
+				{
+					if(temp_parking->status_large_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_large_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=4;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+			}
+
+
+		}
+		else if(temp_parking->next->next->Parking_level==temp_vehicle->spot.Parking_level)
+		{
+			printf("A\n");
+
+			if(type==2)
+			{
+				if(temp_vehicle->spot.type==2)
+				{
+					if(temp_parking->status_compact_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_compact_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=2;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+				else
+				{
+					if(temp_parking->status_large_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_large_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=4;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+			}
+			else
+			{
+				if(temp_vehicle->spot.type==2)
+				{
+					if(temp_parking->status_compact_spot[temp_vehicle->spot.location-1]==0 && temp_parking->status_compact_spot[temp_vehicle->spot.location]==0)
+					{
+						temp_parking->status_compact_spot[temp_vehicle->spot.location-1]=1;
+						temp_parking->status_compact_spot[temp_vehicle->spot.location]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=2;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+				else
+				{
+					if(temp_parking->status_large_spot[temp_vehicle->spot.location-1]==0)
+					{
+						temp_parking->status_large_spot[temp_vehicle->spot.location-1]=1;
+						found=1;
+						spot.Parking_level=temp_vehicle->spot.Parking_level;
+						spot.Dedicated_wing=temp_vehicle->spot.Dedicated_wing;
+						spot.type=4;
+						spot.location=temp_vehicle->spot.location;
+					}
+				}
+			}
+
+
+
+		}
+
+		printf("ALLOCATED PARKING SPACE IS : \n");
+		printf("PARKING LEVEL : %c\nPARKING SPOT TYPE: %d\nPARKING SPOT NO: %d\n",spot.Parking_level,spot.type,spot.location);
+	}
+	else
+	{
+		strcpy(owner,"visitor");
+		//search for a parking spot in 1 then 2 then 3
+		printf("%s",owner);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	}
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+int main(void)
+{
+	struct Node_Flat *Flat_Details;
+	struct Node_Parking *Parking_Lot;
+	Parking_Lot=NULL;
+	Flat_Details=NULL;
+
+	//	Read_Details_Console();
+
+	Flat_Details=Read_Details_File();
+	Parking_Lot=Initialise(Parking_Lot);
+
+//	printf("%c",Parking_Lot->Dedicated_wing);
+//	printf("%c",Parking_Lot->next->Dedicated_wing);
+//	printf("%c",Parking_Lot->next->next->Dedicated_wing);
+
+//	struct Node_Flat *flat;
+//	flat=Flat_Details;
+//	while(flat!=NULL)
+//	{
+//		printf("%s%d%d%d",flat->wing_id,flat->flat_id,flat->no_of_two_wheelers,flat->no_of_four_wheelers);
+//		struct Node_Vehicle *temp_vehicle;
+//		temp_vehicle=flat->vehicle;
+//		while(temp_vehicle!=NULL)
+//		{
+//			printf("%d",temp_vehicle->type);
+//			printf("%s",temp_vehicle->no);
+//			temp_vehicle=temp_vehicle->next;
+//		}
+//		printf("\n");
+//		flat=flat->next;
+//	}
+
+
+
+	Park_Vehicle(Parking_Lot,Flat_Details);
+
+
+
+	return 0;
+}

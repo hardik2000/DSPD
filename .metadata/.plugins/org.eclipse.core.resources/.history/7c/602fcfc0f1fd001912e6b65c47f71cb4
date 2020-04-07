@@ -1,0 +1,25 @@
+/*
+ * merge.c
+ *
+ *  Created on: 03-Nov-2019
+ *      Author: hardik
+ */
+
+
+#include<stdio.h>
+void merge_sort(float a[],float c[],int l,int h)
+{
+	int mid;
+	if(l<h)
+	{
+		mid=(l+h)/2;
+		merge_sort(a,c,l,mid);
+		merge_sort(a,c,mid+1,h);
+		merge_self(a,l,mid,h,c);
+	}
+}
+
+void merge_self(float a[],int l,int m,int n,float c[])
+{
+
+}

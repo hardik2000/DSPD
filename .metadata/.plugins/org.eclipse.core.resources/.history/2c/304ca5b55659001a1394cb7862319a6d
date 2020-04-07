@@ -1,0 +1,229 @@
+/*
+ ============================================================================
+ Name        : pre_post.c
+ Author      : Hardik
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+typedef char item_type;
+
+typedef enum{FAILURE,SUCCESS} status_code;
+typedef enum{false,true} boolean;
+
+typedef struct Node
+{
+	item_type data;
+	struct Node * next;
+}node;
+
+typedef struct stack_tag
+{
+	node * top;
+
+}stack;
+
+typedef struct queue_tag
+{
+	node *front,*rear;
+
+}queue;
+
+
+void Initialise(stack *sptr)
+{
+	sptr->top=NULL;
+}
+struct Node * CreateNode(item_type data)
+{
+	struct Node *ptr;
+	ptr=(struct Node *)malloc(sizeof(struct Node));
+	ptr->data=data;
+	ptr->next=NULL;
+	return ptr;
+}
+
+
+status_code push(stack *sptr,item_type x)
+{
+	status_code retval=SUCCESS;
+	node * nptr=CreateNode(x);
+
+	if(nptr==NULL)
+	{
+		retval=FAILURE;
+		printf("STACK OVERFLOW\n");
+	}
+	else
+	{
+		nptr->next=sptr->top;
+		sptr->top=nptr;
+	}
+	return retval;
+}
+status_code IsEmpty(stack *sptr)
+{
+	status_code sc=FAILURE;
+	if(sptr->top==NULL)
+	{
+		sc=SUCCESS;
+
+	}
+
+	return sc;
+}
+
+status_code pop(item_type *x,stack * sptr)
+{
+	status_code retval=SUCCESS;
+	node * ptr;
+	if(IsEmpty(sptr))
+	{
+		retval=FAILURE;
+	}
+	else
+	{
+		ptr=sptr->top;
+		*x=ptr->data;
+		sptr->top=(sptr->top)->next;
+		free(ptr);
+	}
+	return retval;
+}
+
+
+
+void Initialise(queue *qptr)
+{
+	qptr->front=NULL;
+	qptr->rear=NULL;
+}
+boolean IsQueueEmpty(queue *qptr)
+{
+	boolean ret_val;
+	if(qptr->front==NULL && qptr->rear==NULL)
+	{
+		ret_val=true;
+	}
+	else
+	{
+		ret_val=false;
+	}
+
+	return ret_val;
+}
+
+status_code insert(queue *qptr,item_type x)
+{
+	status_code retval=SUCCESS;
+	node * nptr=CreateNode(x);
+	if(nptr==NULL)
+	{
+		retval=FAILURE;
+	}
+	else
+	{
+		if(IsQueueEmpty(qptr))
+		{
+			qptr->front=qptr->rear=nptr;
+		}
+		else
+		{
+			qptr->rear->next=nptr;
+			qptr->rear=nptr;
+		}
+	}
+
+	return retval;
+}
+
+status_code delete(item_type *x,queue *qptr)
+{
+	status_code retval=SUCCESS;
+	node * ptr;
+	if(IsQueueEmpty(qptr))
+	{
+		retval=FAILURE;
+	}
+	else
+	{
+		ptr=qptr->front;
+		*x=ptr->data;
+		qptr->front=(qptr->front)->next;
+		free(ptr);
+		if(qptr->front==NULL)
+		{
+			qptr->rear=NULL;
+		}
+	}
+
+	return retval;
+}
+
+
+
+
+
+
+int main(void)
+{
+	item_type x;
+	int i;
+	stack sptr;
+	Initialise(&sptr);
+	status_code sc;
+
+
+
+	sc=push(&sptr,x);
+		if(sc==SUCCESS)
+		{
+			printf("\nElement pushed\n");
+		}
+		else
+		{
+			printf("\nElement not pushed\n");
+		}
+
+		sc=pop(&x,&sptr);
+		if(sc==SUCCESS)
+		{
+			printf("\nElement popped %d\n",x);
+		}
+		else
+		{
+			printf("\nElement not pushed\n");
+		}
+
+
+
+		queue s;
+			Initialise(&s);
+			status_code sc;
+				sc=insert(&s,x);
+				if(sc==SUCCESS)
+				{
+					printf("\nElement pushed\n");
+				}
+				else
+				{
+					printf("\nElement not pushed\n");
+				}
+
+				sc=delete(&x,&s);
+				if(sc==SUCCESS)
+				{
+					printf("\nElement popped %d\n",x);
+				}
+				else
+				{
+					printf("\nElement not popped\n");
+				}
+
+}

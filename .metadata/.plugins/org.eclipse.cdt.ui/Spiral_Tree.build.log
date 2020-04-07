@@ -1,0 +1,23 @@
+10:48:41 **** Incremental Build of configuration Debug for project Spiral_Tree ****
+make all 
+Building file: ../src/Spiral_Tree.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Spiral_Tree.d" -MT"src/Spiral_Tree.o" -o "src/Spiral_Tree.o" "../src/Spiral_Tree.c"
+../src/Spiral_Tree.c: In function ‘printSpiralOrder’:
+../src/Spiral_Tree.c:118:14: warning: unused variable ‘sc’ [-Wunused-variable]
+  118 |  status_code sc;
+      |              ^~
+../src/Spiral_Tree.c: In function ‘main’:
+../src/Spiral_Tree.c:215:6: warning: unused variable ‘value’ [-Wunused-variable]
+  215 |  int value;
+      |      ^~~~~
+Finished building: ../src/Spiral_Tree.c
+ 
+Building target: Spiral_Tree
+Invoking: GCC C Linker
+gcc  -o "Spiral_Tree"  ./src/Spiral_Tree.o   
+Finished building target: Spiral_Tree
+ 
+
+10:48:41 Build Finished. 0 errors, 2 warnings. (took 217ms)
+
