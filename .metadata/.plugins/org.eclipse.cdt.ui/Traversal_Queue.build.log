@@ -1,6 +1,15 @@
-19:16:13 **** Incremental Build of configuration Debug for project Traversal_Queue ****
+16:35:19 **** Build of configuration Debug for project Traversal_Queue ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../src/Traversal_Queue.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Traversal_Queue.d" -MT"src/Traversal_Queue.o" -o "src/Traversal_Queue.o" "../src/Traversal_Queue.c"
+Finished building: ../src/Traversal_Queue.c
+ 
+Building target: Traversal_Queue
+Invoking: GCC C Linker
+gcc  -o "Traversal_Queue"  ./src/Traversal_Queue.o   
+Finished building target: Traversal_Queue
+ 
 
-19:16:13 Build Finished. 0 errors, 0 warnings. (took 171ms)
+16:35:19 Build Finished. 0 errors, 0 warnings. (took 218ms)
 

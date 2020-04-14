@@ -1,6 +1,6 @@
-19:03:48 **** Build of configuration Debug for project laser ****
+16:35:20 **** Build of configuration Debug for project laser ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:49 Build Finished. 0 errors, 0 warnings. (took 167ms)
+16:35:20 Build Finished. 0 errors, 0 warnings. (took 166ms)
 

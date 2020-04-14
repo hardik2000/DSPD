@@ -1,6 +1,6 @@
-19:03:45 **** Build of configuration Debug for project Linear_Hashing ****
+16:35:16 **** Build of configuration Debug for project Linear_Hashing ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:45 Build Finished. 0 errors, 0 warnings. (took 167ms)
+16:35:16 Build Finished. 0 errors, 0 warnings. (took 216ms)
 

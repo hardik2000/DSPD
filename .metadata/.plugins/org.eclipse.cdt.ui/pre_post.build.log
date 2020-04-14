@@ -1,6 +1,6 @@
-19:03:50 **** Build of configuration Debug for project pre_post ****
+16:35:21 **** Build of configuration Debug for project pre_post ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:50 Build Finished. 0 errors, 0 warnings. (took 166ms)
+16:35:21 Build Finished. 0 errors, 0 warnings. (took 164ms)
 

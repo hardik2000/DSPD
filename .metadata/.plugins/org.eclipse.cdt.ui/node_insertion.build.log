@@ -1,6 +1,6 @@
-19:03:49 **** Build of configuration Debug for project node_insertion ****
+16:35:21 **** Build of configuration Debug for project node_insertion ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:49 Build Finished. 0 errors, 0 warnings. (took 289ms)
+16:35:21 Build Finished. 0 errors, 0 warnings. (took 163ms)
 

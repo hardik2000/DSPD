@@ -1,4 +1,4 @@
-16:31:54 **** Incremental Build of configuration Debug for project AVL_TREE ****
+16:35:13 **** Incremental Build of configuration Debug for project AVL_TREE ****
 make all 
 Building file: ../src/AVL_TREE.c
 Invoking: GCC C Compiler
@@ -11,5 +11,5 @@ gcc  -o "AVL_TREE"  ./src/AVL_TREE.o
 Finished building target: AVL_TREE
  
 
-16:31:54 Build Finished. 0 errors, 0 warnings. (took 213ms)
+16:35:14 Build Finished. 0 errors, 0 warnings. (took 262ms)
 

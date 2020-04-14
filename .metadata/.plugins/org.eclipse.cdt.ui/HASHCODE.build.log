@@ -1,6 +1,6 @@
-19:03:44 **** Build of configuration Debug for project HASHCODE ****
+16:35:15 **** Build of configuration Debug for project HASHCODE ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:45 Build Finished. 0 errors, 0 warnings. (took 217ms)
+16:35:16 Build Finished. 0 errors, 0 warnings. (took 163ms)
 

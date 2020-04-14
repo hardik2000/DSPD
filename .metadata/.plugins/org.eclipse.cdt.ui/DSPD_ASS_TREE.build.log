@@ -1,15 +1,6 @@
-09:11:18 **** Incremental Build of configuration Debug for project DSPD_ASS_TREE ****
+18:41:20 **** Incremental Build of configuration Debug for project DSPD_ASS_TREE ****
 make all 
-Building file: ../src/DSPD_ASS_TREE.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/DSPD_ASS_TREE.d" -MT"src/DSPD_ASS_TREE.o" -o "src/DSPD_ASS_TREE.o" "../src/DSPD_ASS_TREE.c"
-Finished building: ../src/DSPD_ASS_TREE.c
- 
-Building target: DSPD_ASS_TREE
-Invoking: GCC C Linker
-gcc  -o "DSPD_ASS_TREE"  ./src/DSPD_ASS_TREE.o   
-Finished building target: DSPD_ASS_TREE
- 
+make: Nothing to be done for 'all'.
 
-09:11:18 Build Finished. 0 errors, 0 warnings. (took 212ms)
+18:41:20 Build Finished. 0 errors, 0 warnings. (took 214ms)
 

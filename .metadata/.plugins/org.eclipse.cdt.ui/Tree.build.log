@@ -1,4 +1,4 @@
-19:06:08 **** Incremental Build of configuration Debug for project Tree ****
+16:35:19 **** Build of configuration Debug for project Tree ****
 make all 
 Building file: ../src/Tree.c
 Invoking: GCC C Compiler
@@ -11,5 +11,5 @@ gcc  -o "Tree"  ./src/Tree.o
 Finished building target: Tree
  
 
-19:06:08 Build Finished. 0 errors, 0 warnings. (took 212ms)
+16:35:20 Build Finished. 0 errors, 0 warnings. (took 265ms)
 

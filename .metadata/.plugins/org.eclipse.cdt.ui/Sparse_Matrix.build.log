@@ -1,6 +1,6 @@
-19:03:47 **** Build of configuration Debug for project Sparse_Matrix ****
+16:35:17 **** Build of configuration Debug for project Sparse_Matrix ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:47 Build Finished. 0 errors, 0 warnings. (took 218ms)
+16:35:18 Build Finished. 0 errors, 0 warnings. (took 168ms)
 

@@ -23,19 +23,19 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: String_count
+all: String_count_bst
 
 # Tool invocations
-String_count: $(OBJS) $(USER_OBJS)
+String_count_bst: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: GCC C Linker'
-	gcc  -o "String_count" $(OBJS) $(USER_OBJS) $(LIBS)
+	gcc  -o "String_count_bst" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) String_count
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) String_count_bst
 	-@echo ' '
 
 .PHONY: all clean dependents

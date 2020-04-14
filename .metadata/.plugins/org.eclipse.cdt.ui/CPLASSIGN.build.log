@@ -1,6 +1,6 @@
-19:03:43 **** Build of configuration Debug for project CPLASSIGN ****
+16:35:14 **** Build of configuration Debug for project CPLASSIGN ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:43 Build Finished. 0 errors, 0 warnings. (took 185ms)
+16:35:14 Build Finished. 0 errors, 0 warnings. (took 163ms)
 

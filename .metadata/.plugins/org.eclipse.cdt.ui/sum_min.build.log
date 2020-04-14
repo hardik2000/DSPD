@@ -1,6 +1,6 @@
-19:03:51 **** Build of configuration Debug for project sum_min ****
+16:35:23 **** Build of configuration Debug for project sum_min ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:52 Build Finished. 0 errors, 0 warnings. (took 165ms)
+16:35:23 Build Finished. 0 errors, 0 warnings. (took 162ms)
 

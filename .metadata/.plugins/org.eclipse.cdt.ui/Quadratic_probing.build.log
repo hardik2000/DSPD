@@ -1,6 +1,6 @@
-19:03:45 **** Build of configuration Debug for project Quadratic_probing ****
+16:35:16 **** Build of configuration Debug for project Quadratic_probing ****
 make all 
 make: Nothing to be done for 'all'.
 
-19:03:46 Build Finished. 0 errors, 0 warnings. (took 169ms)
+16:35:17 Build Finished. 0 errors, 0 warnings. (took 217ms)
 
