@@ -1,21 +1,3 @@
-09:41:45 **** Incremental Build of configuration Debug for project HEAP_TREE ****
-make all 
-Building file: ../src/HEAP_TREE.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/HEAP_TREE.d" -MT"src/HEAP_TREE.o" -o "src/HEAP_TREE.o" "../src/HEAP_TREE.c"
-Finished building: ../src/HEAP_TREE.c
- 
-Building target: HEAP_TREE
-Invoking: GCC C Linker
-gcc  -o "HEAP_TREE"  ./src/HEAP_TREE.o   
-Finished building target: HEAP_TREE
- 
-09:41:53 **** Incremental Build of configuration Debug for project HEAP_TREE ****
-make all 
-make: Nothing to be done for 'all'.
-09:43:03 **** Incremental Build of configuration Debug for project HEAP_TREE ****
-make all 
-make: Nothing to be done for 'all'.
-09:43:03 **** Incremental Build of configuration Debug for project HEAP_TREE ****
+16:42:37 **** Incremental Build of configuration Debug for project Knapsack ****
 make all 
 make: Nothing to be done for 'all'.
