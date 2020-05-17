@@ -1,3 +1,14 @@
-16:42:37 **** Incremental Build of configuration Debug for project Knapsack ****
+16:21:37 **** Incremental Build of configuration Debug for project codechef ****
 make all 
-make: Nothing to be done for 'all'.
+Building file: ../src/codechef.cpp
+Invoking: GCC C++ Compiler
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/codechef.d" -MT"src/codechef.o" -o "src/codechef.o" "../src/codechef.cpp"
+../src/codechef.cpp: In function ‘int main()’:
+../src/codechef.cpp:64:23: error: ‘class __gnu_cxx::__normal_iterator<std::pair<int, int>*, std::vector<std::pair<int, int> > >’ has no member named ‘first’
+   64 |          cout<<"("<<k.first<<","k.second<<")";
+      |                       ^~~~~
+../src/codechef.cpp:64:30: error: unable to find string literal operator ‘operator""k’ with ‘const char [2]’, ‘long unsigned int’ arguments
+   64 |          cout<<"("<<k.first<<","k.second<<")";
+      |                              ^~~~
+make: *** [src/subdir.mk:20: src/codechef.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
