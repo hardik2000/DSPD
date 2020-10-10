@@ -1,14 +1,19 @@
-16:21:37 **** Incremental Build of configuration Debug for project codechef ****
+11:17:38 **** Incremental Build of configuration Debug for project IOOM_BT18CSE118_TEST1 ****
 make all 
-Building file: ../src/codechef.cpp
+Building file: ../src/IOOM_BT18CSE118_TEST1.cpp
 Invoking: GCC C++ Compiler
-g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/codechef.d" -MT"src/codechef.o" -o "src/codechef.o" "../src/codechef.cpp"
-../src/codechef.cpp: In function ‘int main()’:
-../src/codechef.cpp:64:23: error: ‘class __gnu_cxx::__normal_iterator<std::pair<int, int>*, std::vector<std::pair<int, int> > >’ has no member named ‘first’
-   64 |          cout<<"("<<k.first<<","k.second<<")";
-      |                       ^~~~~
-../src/codechef.cpp:64:30: error: unable to find string literal operator ‘operator""k’ with ‘const char [2]’, ‘long unsigned int’ arguments
-   64 |          cout<<"("<<k.first<<","k.second<<")";
-      |                              ^~~~
-make: *** [src/subdir.mk:20: src/codechef.o] Error 1
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/IOOM_BT18CSE118_TEST1.d" -MT"src/IOOM_BT18CSE118_TEST1.o" -o "src/IOOM_BT18CSE118_TEST1.o" "../src/IOOM_BT18CSE118_TEST1.cpp"
+Finished building: ../src/IOOM_BT18CSE118_TEST1.cpp
+ 
+Building target: IOOM_BT18CSE118_TEST1
+Invoking: GCC C++ Linker
+g++  -o "IOOM_BT18CSE118_TEST1"  ./src/IOOM_BT18CSE118_TEST1.o   
+/usr/bin/ld: ./src/IOOM_BT18CSE118_TEST1.o: in function `CommissionEmployee::~CommissionEmployee()':
+/home/hardik/eclipse-workspace/IOOM_BT18CSE118_TEST1/Debug/../src/IOOM_BT18CSE118_TEST1.cpp:169: undefined reference to `Employee::~Employee()'
+/usr/bin/ld: ./src/IOOM_BT18CSE118_TEST1.o: in function `HourlyEmployee::~HourlyEmployee()':
+/home/hardik/eclipse-workspace/IOOM_BT18CSE118_TEST1/Debug/../src/IOOM_BT18CSE118_TEST1.cpp:108: undefined reference to `Employee::~Employee()'
+/usr/bin/ld: ./src/IOOM_BT18CSE118_TEST1.o: in function `SalariedEmployee::~SalariedEmployee()':
+/home/hardik/eclipse-workspace/IOOM_BT18CSE118_TEST1/Debug/../src/IOOM_BT18CSE118_TEST1.cpp:64: undefined reference to `Employee::~Employee()'
+collect2: error: ld returned 1 exit status
+make: *** [makefile:47: IOOM_BT18CSE118_TEST1] Error 1
 "make all" terminated with exit code 2. Build might be incomplete.

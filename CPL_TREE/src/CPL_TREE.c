@@ -198,7 +198,15 @@ Tree_Node * Mark_Sweep(Tree_Node * root)
 		{
 			done=1;
 
-			curr->mark=true;
+			if(curr->mark==true)
+			{
+				//printf("%d ",curr->data);
+			}
+			else
+			{
+				printf("%d ",curr->data);
+				curr->mark=true;
+			}
 			if(curr->left!=NULL)
 			{
 				if(curr->left->mark==false)
@@ -324,3 +332,7 @@ int main(void)
 
 	return 0;
 }
+
+
+//5 6 0 1 8 2 7 3 4 9 -1
+
